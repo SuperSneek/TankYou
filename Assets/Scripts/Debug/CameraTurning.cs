@@ -13,11 +13,12 @@ public class CameraTurning : MonoBehaviour
     void Start()
     {
         transform = GetComponent<Transform>();
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.localRotation *= Quaternion.Euler(new Vector3(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X")) * sensitivity);
+        transform.Rotate(new Vector3(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X")) * sensitivity);
     }
 }
